@@ -14,8 +14,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,8 +26,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@storybook/react": "^4.0.0-alpha.4",
-    "babel-core": "^6.26.3",
-    "storybook-addon-specifications": "^2.1.2"
+    "babel-core": "^6.26.3"
   }
 }
