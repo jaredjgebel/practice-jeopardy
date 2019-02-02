@@ -6,20 +6,29 @@ const TextArea = styled.div`
   background-color: ${props => props.theme.backgroundColor};
   font-size: 50px;
   color: white;
-  height: 20rem;
+  min-height: ${props => props.theme.height};
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  .text {
+    max-width: calc(100% - 20vh);
+    text-align: center;
+  }
 `;
 
 TextArea.defaultProps = {
   theme: {
-    backgroundColor: "whitesmoke"
+    backgroundColor: "whitesmoke",
+    height: "20rem"
   }
 };
 
-const TextCanvas = ({ children }) => <TextArea>{children}</TextArea>;
+const TextCanvas = ({ children }) => (
+  <TextArea>
+    <div className="text">{children}</div>
+  </TextArea>
+);
 
 export default TextCanvas;

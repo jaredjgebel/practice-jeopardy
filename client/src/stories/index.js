@@ -1,21 +1,20 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
-import { ThemeProvider } from "styled-components";
+// import { action } from "@storybook/addon-actions";
+// import { ThemeProvider } from "styled-components";
 // import Button from "../components/Button";
 import TextCanvas from "../components/elements/TextCanvas";
+import ClueCard from "../components/elements/ClueCard";
 
-const theme = {
-  backgroundColor: "#020788"
-};
-
-storiesOf("TextCanvas", module)
-  .addDecorator(story => <ThemeProvider theme={theme}>{story()}</ThemeProvider>)
-  .add("TextCanvas", () => (
-    <TextCanvas>
-      <p>THIS IS (practice) JEOPARDY!</p>
-    </TextCanvas>
-  ));
+storiesOf("JeopardyGrid", module).add("ClueCard", () => (
+  <ClueCard
+    clue="THIS ISLAND NATION PRODUCES 700 MILLIONS TONS OF PAPAYAS ANNUALLY"
+    value="200"
+    category="CHUTES AND LADDERS"
+    airDate="12-19-1988"
+    answer="MEXICO"
+  />
+));
 
 // storiesOf("Button", module)
 //   .add("Button/Text", () => (
