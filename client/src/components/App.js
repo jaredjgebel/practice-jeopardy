@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { getRandomClues } from "../data/fetch-data";
+import { getRandomClues } from "../data/fetch";
 
 class App extends Component {
   componentDidMount() {

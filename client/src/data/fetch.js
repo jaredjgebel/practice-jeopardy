@@ -11,9 +11,9 @@ export const getRandomClues = () => {
 
       return response.json();
     })
-    .then(clues => {
-      console.log("CLUES", clues);
-    })
+    // .then(clues => {
+    //   console.log("CLUES", clues);
+    // })
     .catch(err => {
       console.log("Error: ", err);
     });
