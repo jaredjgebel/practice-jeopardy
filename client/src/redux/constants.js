@@ -4,3 +4,5 @@ export const GET_RANDOM_CLUES_ERROR = "GET_RANDOM_CLUES_ERROR";
 
 export const PAGE_BACK = "PAGE_BACK";
 export const PAGE_FORWARD = "PAGE_FORWARD";
+
+export const TOGGLE_ACTIVE_GAME = "TOGGLE_ACTIVE_GAME";

@@ -4,7 +4,8 @@ const defaultState = {
   loading: false,
   gameActive: false,
   currentPage: 1,
-  error: null
+  error: null,
+  view: null
 };
 
 const ui = (state = defaultState, action) => {
@@ -15,7 +16,7 @@ const ui = (state = defaultState, action) => {
         {},
         {
           ...state,
-          currentPage: state.currentPage - 1
+          currentPage: action.payload.currentPage - 1
         }
       );
     case c.PAGE_FORWARD:
@@ -23,9 +24,12 @@ const ui = (state = defaultState, action) => {
         {},
         {
           ...state,
-          currentPage: state.currentPage + 1
+          currentPage: action.payload.currentPage + 1
         }
       );
+    case c.TOGGLE_ACTIVE_GAME:
+      console.log(action.payload.toggleState);
+      return Object.assign({}, { ...state, gameActive: !action.payload });
     default:
       return state;
   }

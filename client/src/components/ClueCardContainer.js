@@ -1,6 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import ClueCard from "./elements/ClueCard";
-import { getRandomClues } from "../data/fetch-data";
+import { toggleActiveGame } from "../redux/actionCreators";
+// import { getRandomClues } from "../data/fetch-data";
+
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleActiveGame: toggleState => {
+      dispatch(toggleActiveGame(toggleState));
+    }
+  };
+};
 
 /*
 Indexing for clues
@@ -14,24 +24,14 @@ Indexing for clues
 */
 
 class ClueCardContainer extends Component {
-  constructor() {
-    super();
-    this.state = { visible: false };
-    this.onClick = this.onClick.bind(this);
-  }
-
-  componentDidMount() {
-    const clues = getRandomClues();
-    this.setState({ clues });
-  }
-
-  onClick() {
-    this.setState({ visible: !this.state.visible });
-  }
-
   render() {
-    return <ClueCard />;
+    return (
+      <ClueCard clue={"asdf"} toggleActiveGame={this.props.toggleActiveGame} />
+    );
   }
 }
 
-export default ClueCardContainer;
+export default connect(
+  null,
+  mapDispatchToProps
+)(ClueCardContainer);
