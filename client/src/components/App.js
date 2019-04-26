@@ -26,7 +26,6 @@ class App extends Component {
   componentDidMount() {
     // getRandomClues();
     const { gameActive, loading } = this.props;
-    console.log(gameActive, loading);
   }
 
   render() {
@@ -35,7 +34,7 @@ class App extends Component {
     return gameActive ? (
       <ClueCardContainer />
     ) : (
-      <FrontPage gameActive={gameActive} toggleActiveGame={toggleActiveGame} />
+      <FrontPage toggleActiveGame={toggleActiveGame} />
     );
   }
 }

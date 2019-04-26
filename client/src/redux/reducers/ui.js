@@ -28,7 +28,6 @@ const ui = (state = defaultState, action) => {
         }
       );
     case c.TOGGLE_ACTIVE_GAME:
-      console.log(action.payload.toggleState);
       return Object.assign({}, { ...state, gameActive: !action.payload });
     default:
       return state;

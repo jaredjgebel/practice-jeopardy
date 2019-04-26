@@ -12,17 +12,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-/*
-Indexing for clues
-   Back button
-      Visible/ if index > 0
-      
-   Front button 
-      Visible unless index = clues.length - 1
-   state: { activeClue: 0 }
-
-*/
-
 class ClueCardContainer extends Component {
   render() {
     return (
@@ -35,3 +24,14 @@ export default connect(
   null,
   mapDispatchToProps
 )(ClueCardContainer);
+
+/*
+Indexing for clues
+   Back button
+      Visible/ if index > 0
+      
+   Front button 
+      Visible unless index = clues.length - 1
+   state: { activeClue: 0 }
+
+*/
