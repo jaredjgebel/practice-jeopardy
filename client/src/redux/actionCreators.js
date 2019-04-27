@@ -14,3 +14,10 @@ export const toggleActiveGame = toggleState => ({
   type: c.TOGGLE_ACTIVE_GAME,
   payload: toggleState
 });
+
+export const toggleAnswerVisible = answerVisible => ({
+  type: c.TOGGLE_ANSWER_VISIBLE,
+  payload: {
+    answerVisible
+  }
+});

@@ -7,11 +7,25 @@ const ClueCard = ({
   value,
   airDate,
   answer,
-  toggleActiveGame
+  answerVisible,
+  toggleActiveGame,
+  toggleAnswerVisible
 }) => (
   <div className="clue-card">
-    <p>{clue}</p>
-    <button className="menu" onClick={() => toggleActiveGame(true)} />
+    {answerVisible ? <p>{answer}</p> : <p>{clue}</p>}
+    <p>{id}</p>
+    <p>{category}</p>
+    <p>{value}</p>
+    <p>{airDate}</p>
+    <button
+      className="answer"
+      onClick={() => toggleAnswerVisible(answerVisible)}
+    >
+      Reveal Answer
+    </button>
+    <button className="menu" onClick={() => toggleActiveGame(true)}>
+      Menu
+    </button>
   </div>
 );
 

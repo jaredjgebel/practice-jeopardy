@@ -5,3 +5,7 @@ export const isGameActive = state => {
 export const isLoading = state => {
   return state.ui && state.ui.loading;
 };
+
+export const isAnswerVisible = state => {
+  return state.clues && state.clues.answerVisible;
+};

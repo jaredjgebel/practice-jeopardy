@@ -1,13 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ClueCard from "./elements/ClueCard";
-import { toggleActiveGame } from "../redux/actionCreators";
+import { toggleActiveGame, toggleAnswerVisible } from "../redux/actionCreators";
+import { isAnswerVisible } from "../redux/selectors";
 // import { getRandomClues } from "../data/fetch-data";
+
+const mapStateToProps = state => {
+  return {
+    answerVisible: isAnswerVisible(state)
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     toggleActiveGame: toggleState => {
       dispatch(toggleActiveGame(toggleState));
+    },
+    toggleAnswerVisible: answerVisible => {
+      dispatch(toggleAnswerVisible(answerVisible));
     }
   };
 };
@@ -15,13 +25,19 @@ const mapDispatchToProps = dispatch => {
 class ClueCardContainer extends Component {
   render() {
     return (
-      <ClueCard clue={"asdf"} toggleActiveGame={this.props.toggleActiveGame} />
+      <ClueCard
+        clue={"This is a clue"}
+        answer={"This is the answer"}
+        answerVisible={this.props.answerVisible}
+        toggleActiveGame={this.props.toggleActiveGame}
+        toggleAnswerVisible={this.props.toggleAnswerVisible}
+      />
     );
   }
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ClueCardContainer);
 
