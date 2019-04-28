@@ -17,3 +17,11 @@ export const getCurrentPage = state => {
 export const getTotalPages = state => {
   return state.ui && state.ui.totalPages;
 };
+
+export const getClues = state => {
+  return state.clues && state.clues.cluesById;
+};
+
+export const getClueIds = state => {
+  return state.clues && state.clues.allIds;
+};

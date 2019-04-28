@@ -11,7 +11,9 @@ import {
   isAnswerVisible,
   isLoading,
   getCurrentPage,
-  getTotalPages
+  getTotalPages,
+  getClues,
+  getClueIds
 } from "../redux/selectors";
 
 const convertToString = num => {
@@ -23,7 +25,9 @@ const mapStateToProps = state => {
     answerVisible: isAnswerVisible(state),
     loading: isLoading(state),
     currentPage: getCurrentPage(state),
-    totalPages: getTotalPages(state)
+    totalPages: getTotalPages(state),
+    clues: getClues(state),
+    clueIds: getClueIds(state)
   };
 };
 
@@ -51,6 +55,8 @@ class ClueCardContainer extends Component {
       answerVisible,
       currentPage,
       totalPages,
+      clues,
+      clueIds,
       toggleActiveGame,
       toggleAnswerVisible,
       pageBack,
@@ -61,8 +67,11 @@ class ClueCardContainer extends Component {
       <p>Loading...</p>
     ) : (
       <ClueCard
-        clue={"This is a clue"}
-        answer={"This is the answer"}
+        clue={clues[clueIds[currentPage - 1]].clue}
+        answer={clues[clueIds[currentPage - 1]].answer}
+        category={clues[clueIds[currentPage - 1]].category}
+        value={clues[clueIds[currentPage - 1]].value}
+        airDate={clues[clueIds[currentPage - 1]].airDate}
         index={currentPage}
         totalClues={totalPages}
         currentPage={convertToString(currentPage)}
@@ -81,14 +90,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ClueCardContainer);
-
-/*
-Indexing for clues
-   Back button
-      Visible/ if index > 0
-      
-   Front button 
-      Visible unless index = clues.length - 1
-   state: { activeClue: 0 }
-
-*/

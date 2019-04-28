@@ -15,7 +15,6 @@ const clues = (state = defaultState, action) => {
       };
 
     case c.GET_RANDOM_CLUES_SUCCESS:
-      // console.log(action.payload.clues);
       const obj = {};
 
       action.payload.clues.forEach(clue => {
