@@ -1,13 +1,29 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ClueCard from "./elements/ClueCard";
-import { toggleActiveGame, toggleAnswerVisible } from "../redux/actionCreators";
-import { isAnswerVisible } from "../redux/selectors";
-// import { getRandomClues } from "../data/fetch-data";
+import {
+  toggleActiveGame,
+  toggleAnswerVisible,
+  pageBack,
+  pageForward
+} from "../redux/actionCreators";
+import {
+  isAnswerVisible,
+  isLoading,
+  getCurrentPage,
+  getTotalPages
+} from "../redux/selectors";
+
+const convertToString = num => {
+  return num && num.toString();
+};
 
 const mapStateToProps = state => {
   return {
-    answerVisible: isAnswerVisible(state)
+    answerVisible: isAnswerVisible(state),
+    loading: isLoading(state),
+    currentPage: getCurrentPage(state),
+    totalPages: getTotalPages(state)
   };
 };
 
@@ -18,19 +34,44 @@ const mapDispatchToProps = dispatch => {
     },
     toggleAnswerVisible: answerVisible => {
       dispatch(toggleAnswerVisible(answerVisible));
+    },
+    pageBack: currentPage => {
+      dispatch(pageBack(currentPage));
+    },
+    pageForward: (currentPage, totalPages) => {
+      dispatch(pageForward(currentPage, totalPages));
     }
   };
 };
 
 class ClueCardContainer extends Component {
   render() {
-    return (
+    const {
+      loading,
+      answerVisible,
+      currentPage,
+      totalPages,
+      toggleActiveGame,
+      toggleAnswerVisible,
+      pageBack,
+      pageForward
+    } = this.props;
+
+    return loading ? (
+      <p>Loading...</p>
+    ) : (
       <ClueCard
         clue={"This is a clue"}
         answer={"This is the answer"}
-        answerVisible={this.props.answerVisible}
-        toggleActiveGame={this.props.toggleActiveGame}
-        toggleAnswerVisible={this.props.toggleAnswerVisible}
+        index={currentPage}
+        totalClues={totalPages}
+        currentPage={convertToString(currentPage)}
+        totalPages={convertToString(totalPages)}
+        answerVisible={answerVisible}
+        toggleActiveGame={toggleActiveGame}
+        toggleAnswerVisible={toggleAnswerVisible}
+        pageBack={pageBack}
+        pageForward={pageForward}
       />
     );
   }

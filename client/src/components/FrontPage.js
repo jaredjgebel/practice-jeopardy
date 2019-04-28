@@ -1,6 +1,6 @@
 import React from "react";
 
-const FrontPage = ({ toggleActiveGame }) => {
+const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
   return (
     <div className="front-page">
       <h2>This is...</h2>
@@ -9,7 +9,13 @@ const FrontPage = ({ toggleActiveGame }) => {
         Flash card style questions and answers from Jeopardy questions
         throughout the ages
       </p>
-      <button className="start-button" onClick={() => toggleActiveGame(false)}>
+      <button
+        className="start-button"
+        onClick={() => {
+          toggleActiveGame(false);
+          getRandomClues();
+        }}
+      >
         START
       </button>
     </div>

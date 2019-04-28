@@ -1,20 +1,19 @@
 const apiUrl = `http://jservice.io/api`;
 
-export const getRandomClues = () => {
-  fetch(`${apiUrl}/random?count=100`, {
-    method: "GET"
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`${response.status} ${response.statusText}`);
-      }
-
-      return response.json();
+export const fetchRandomClues = () => {
+  return new Promise((resolve, reject) => {
+    fetch(`${apiUrl}/random?count=100`, {
+      method: "GET"
     })
-    // .then(clues => {
-    //   console.log("CLUES", clues);
-    // })
-    .catch(err => {
-      console.log("Error: ", err);
-    });
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+
+        resolve(response.json());
+      })
+      .catch(err => {
+        reject("Error: ", err);
+      });
+  });
 };
