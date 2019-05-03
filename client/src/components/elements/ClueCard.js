@@ -1,8 +1,7 @@
 import React from "react";
-import { Container, Row } from "react-grid-system";
-// import { FlexCol } from "./FlexCol";
-import StyledArrowLeftCircle from "../styled/StyledArrowLeftCircle";
-import ClueCardContainer from "../styled/ClueCardContainer";
+import { Row } from "react-grid-system";
+import FlexCol from "./FlexCol";
+import LeftArrow from "../styled/LeftArrow";
 
 const ClueCard = ({
   id,
@@ -37,7 +36,7 @@ const ClueCard = ({
         Menu
       </button>
       <button className="prev">Previous Clue</button>
-      <StyledArrowLeftCircle
+      <LeftArrow
         disabled={currentPage === "1"}
         onClick={() => {
           pageBack(currentPage);

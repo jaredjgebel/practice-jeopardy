@@ -6,6 +6,8 @@ import ClueCardContainer from "../components/ClueCardContainer";
 import { toggleActiveGame } from "../redux/actionCreators";
 import { isGameActive, isLoading } from "../redux/selectors";
 import { getRandomClues } from "../redux/actionCreators";
+import Background from "./styled/Background";
+import StyledContainer from "./styled/StyledContainer";
 
 const mapStateToProps = state => {
   return {
@@ -28,13 +30,19 @@ class App extends Component {
   render() {
     const { gameActive, toggleActiveGame, getRandomClues } = this.props;
 
-    return gameActive ? (
+    const MainComponent = gameActive ? (
       <ClueCardContainer />
     ) : (
       <FrontPage
         toggleActiveGame={toggleActiveGame}
         getRandomClues={getRandomClues}
       />
+    );
+
+    return (
+      <Background>
+        <StyledContainer fluid={true}>{MainComponent}</StyledContainer>
+      </Background>
     );
   }
 }

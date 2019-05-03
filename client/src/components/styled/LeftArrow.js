@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import ArrowLeftCircle from "react-feather/dist/icons/arrow-left-circle";
 
-const StyledArrowLeftCircle = styled(ArrowLeftCircle)`
-  fill: ${props => (props.disabled ? "white" : "#020788")};
+const LeftArrow = styled(ArrowLeftCircle)`
+  fill: ${props => (props.disabled ? "gray" : "#020788")};
   stroke: ${props => (props.disabled ? "gray" : "white")};
   :hover {
     fill: ${props => (props.disabled ? "gray" : "white")};
@@ -10,4 +10,4 @@ const StyledArrowLeftCircle = styled(ArrowLeftCircle)`
   }
 `;
 
-export default StyledArrowLeftCircle;
+export default LeftArrow;

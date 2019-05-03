@@ -1,31 +1,17 @@
 import React from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { FlexCol } from "./elements/FlexCol";
-import styled from "styled-components";
-
-const template = `
-  "a a a" 3fr
-  "b b b" 3fr
-  "c c c" 1fr
-`;
-
-const StyledContainer = styled(Container)`
-  height: 100vh;
-  background: linear-gradient(180deg, #050b9d 25.52%, #040639 100%), #020788;
-  color: whitesmoke;
-  font-size: 26px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-`;
 
 const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
   return (
-    <StyledContainer fluid={true} className="front-page">
-      <Row style={{ height: "35%", minHeight: "200px" }}>
+    <>
+      <Row style={{ height: "35%", minHeight: "200px" }} className="front-page">
         <Col
           style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "flex-end"
+            alignItems: "flex-end",
+            textAlign: "center"
           }}
         >
           <h1 style={{ fontSize: "4rem", marginBottom: "0px" }}>
@@ -39,7 +25,9 @@ const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
             height: "40%",
             minHeight: "200px",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
+            padding: "0px 50px",
+            textAlign: "center"
           }}
         >
           <p>
@@ -59,9 +47,10 @@ const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
           >
             START
           </button>
+          <p>100 clues from a random date</p>
         </FlexCol>
       </Row>
-    </StyledContainer>
+    </>
   );
 };
 
