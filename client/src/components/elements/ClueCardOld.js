@@ -8,7 +8,6 @@ const ClueGrid = styled(Container)`
   height: 100vh;
   width: 100%;
   color: whitesmoke;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 26px;
   background-color: #020788;
 

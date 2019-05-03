@@ -1,4 +1,8 @@
 import React from "react";
+import { Container, Row } from "react-grid-system";
+// import { FlexCol } from "./FlexCol";
+import StyledArrowLeftCircle from "../styled/StyledArrowLeftCircle";
+import ClueCardContainer from "../styled/ClueCardContainer";
 
 const ClueCard = ({
   id,
@@ -16,7 +20,7 @@ const ClueCard = ({
   pageForward
 }) => {
   return (
-    <div className="clue-card">
+    <div className="clue-card" fluid={true}>
       {answerVisible ? <p>{answer}</p> : <p>{clue}</p>}
       <p>{id}</p>
       <p>{category}</p>
@@ -32,17 +36,27 @@ const ClueCard = ({
       <button className="menu" onClick={() => toggleActiveGame(true)}>
         Menu
       </button>
-      <button
-        className="prev"
+      <button className="prev">Previous Clue</button>
+      <StyledArrowLeftCircle
         disabled={currentPage === "1"}
-        onClick={() => pageBack(currentPage)}
-      >
-        Previous Clue
-      </button>
+        onClick={() => {
+          pageBack(currentPage);
+
+          if (answerVisible) {
+            toggleAnswerVisible(answerVisible);
+          }
+        }}
+      />
       <button
         className="next"
         disabled={currentPage === totalPages}
-        onClick={() => pageForward(currentPage, totalPages)}
+        onClick={() => {
+          pageForward(currentPage, totalPages);
+
+          if (answerVisible) {
+            toggleAnswerVisible(answerVisible);
+          }
+        }}
       >
         Next Clue
       </button>
