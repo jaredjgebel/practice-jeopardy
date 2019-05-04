@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "react-grid-system";
 import { FlexCol } from "./elements/FlexCol";
+import StyledButton from "./styled/StyledButton";
 
 const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
   return (
@@ -38,15 +39,17 @@ const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
       </Row>
       <Row>
         <FlexCol style={{ justifyContent: "center", alignItems: "center" }}>
-          <button
+          <StyledButton
+            alt="start"
             className="start-button"
+            width="7rem"
             onClick={() => {
               toggleActiveGame(false);
               getRandomClues();
             }}
           >
             START
-          </button>
+          </StyledButton>
           <p>100 clues from a random date</p>
         </FlexCol>
       </Row>
