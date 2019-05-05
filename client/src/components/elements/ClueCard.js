@@ -1,5 +1,5 @@
 import React from "react";
-import { Row } from "react-grid-system";
+import { Row, Visible, Hidden } from "react-grid-system";
 import { FlexCol } from "./FlexCol";
 import StyledButton from "../styled/StyledButton";
 import LeftArrow from "../styled/LeftArrow";
@@ -24,18 +24,24 @@ const ClueCard = ({
 }) => {
   return (
     <Row className="clue-card">
-      <FlexCol xs={12} direction="row" className="header">
-        <MenuIcon
-          className="menu"
-          alt="menu"
-          size="75px"
-          onClick={() => toggleActiveGame(true)}
-        />
-        <StyledInfo size="75px" />
-        <span>{value}</span>
-        <span>{airDate}</span>
+      <Visible md lg xl>
+        <FlexCol md={6} direction="row">
+          <MenuIcon
+            className="menu"
+            alt="menu"
+            size="75px"
+            onClick={() => toggleActiveGame(true)}
+          />
+          <StyledInfo>
+            <p>{`$${value}`}</p>
+            <p>{`Aired ${new Date(Date.parse(airDate))}`.slice(0, -42)}</p>
+            <p>{"Clue " + currentPage + " of " + totalPages}</p>
+          </StyledInfo>
+        </FlexCol>
+      </Visible>
+
+      <FlexCol xs={12} md={6} direction="row">
         <span>{category}</span>
-        <span>{"Clue " + currentPage + " of " + totalPages}</span>
       </FlexCol>
       <FlexCol xs={12}>
         {answerVisible ? <p>{answer}</p> : <p>{clue}</p>}
