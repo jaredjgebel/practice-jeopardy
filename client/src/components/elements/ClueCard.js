@@ -1,6 +1,5 @@
 import React from "react";
-import { Row, Visible, Hidden } from "react-grid-system";
-import { FlexCol } from "./FlexCol";
+import { Container, Row, Col, Visible } from "react-grid-system";
 import StyledButton from "../styled/StyledButton";
 import LeftArrow from "../styled/LeftArrow";
 import RightArrow from "../styled/RightArrow";
@@ -23,64 +22,136 @@ const ClueCard = ({
   pageForward
 }) => {
   return (
-    <Row className="clue-card">
-      <Visible md lg xl>
-        <FlexCol md={6} direction="row">
+    <Container
+      fluid
+      style={{
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        paddingLeft: "0px",
+        paddingRight: "0px"
+      }}
+    >
+      <Row nogutter style={{ flex: "0 1 auto", height: "20vh" }}>
+        <Col
+          xs={2}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            height: "100%"
+          }}
+        >
           <MenuIcon
             className="menu"
             alt="menu"
             size="75px"
             onClick={() => toggleActiveGame(true)}
           />
+        </Col>
+        <Col
+          xs={10}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%"
+          }}
+        >
+          <p className="category" style={{ fontSize: "26px" }}>
+            {category}
+          </p>
+        </Col>
+      </Row>
+
+      <Row nogutter style={{ flex: "1 1 auto", paddingBottom: "30px" }}>
+        <Col
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+            flexDirection: "column"
+          }}
+        >
+          {answerVisible ? (
+            <p className="answer">{answer}</p>
+          ) : (
+            <p className="clue">{clue}</p>
+          )}
+          <StyledButton
+            style={{ fontSize: "26px" }}
+            onClick={() => {
+              toggleAnswerVisible(answerVisible);
+            }}
+          >
+            {answerVisible ? "BACK TO CLUE" : "REVEAL ANSWER"}
+          </StyledButton>
+        </Col>
+      </Row>
+
+      <Row nogutter style={{ flex: "0 1 auto", height: "20vh" }}>
+        <Col
+          xs={2}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            height: "100%"
+          }}
+        >
+          <LeftArrow
+            alt="Page Back"
+            disabled={currentPage === "1"}
+            size="100px"
+            onClick={() => {
+              pageBack(currentPage);
+
+              if (answerVisible) {
+                toggleAnswerVisible(answerVisible);
+              }
+            }}
+          />
+        </Col>
+        <Col
+          xs={8}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%"
+          }}
+        >
           <StyledInfo>
             <p>{`$${value}`}</p>
             <p>{`Aired ${new Date(Date.parse(airDate))}`.slice(0, -42)}</p>
             <p>{"Clue " + currentPage + " of " + totalPages}</p>
           </StyledInfo>
-        </FlexCol>
-      </Visible>
-
-      <FlexCol xs={12} md={6} direction="row">
-        <span>{category}</span>
-      </FlexCol>
-      <FlexCol xs={12}>
-        {answerVisible ? <p>{answer}</p> : <p>{clue}</p>}
-        <StyledButton
-          alt={answerVisible ? "Back to Clue" : "Reveal Answer"}
-          className="answer"
-          width="9em"
-          onClick={() => toggleAnswerVisible(answerVisible)}
+        </Col>
+        <Col
+          xs={2}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            height: "100%"
+          }}
         >
-          {answerVisible ? "Back to Clue" : "Reveal Answer"}
-        </StyledButton>
-      </FlexCol>
-      <FlexCol xs={12}>
-        <LeftArrow
-          alt="Page Back"
-          disabled={currentPage === "1"}
-          size="75px"
-          onClick={() => {
-            pageBack(currentPage);
+          <RightArrow
+            alt="Page Forward"
+            disabled={currentPage === totalPages}
+            size="100px"
+            onClick={() => {
+              pageForward(currentPage, totalPages);
 
-            if (answerVisible) {
-              toggleAnswerVisible(answerVisible);
-            }
-          }}
-        />
-        <RightArrow
-          alt="Page Forward"
-          disabled={currentPage === totalPages}
-          size="75px"
-          onClick={() => {
-            pageForward(currentPage, totalPages);
-
-            if (answerVisible) {
-              toggleAnswerVisible(answerVisible);
-            }
-          }}
-        />
-      </FlexCol>
-    </Row>
+              if (answerVisible) {
+                toggleAnswerVisible(answerVisible);
+              }
+            }}
+          />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

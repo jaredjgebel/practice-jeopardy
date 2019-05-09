@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import ArrowLeftCircle from "react-feather/dist/icons/arrow-left-circle";
 import styles from "../styles/styles";
 

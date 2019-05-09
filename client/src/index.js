@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import { ScreenClassProvider } from "react-grid-system";
 import store from "./redux/store";
 import "./index.css";
 import App from "./components/App";
@@ -8,7 +9,9 @@ import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ScreenClassProvider>
+      <App />
+    </ScreenClassProvider>
   </Provider>,
   document.getElementById("root")
 );

@@ -22,11 +22,13 @@ const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
       </Row>
       <Row>
         <FlexCol
+          xs={12}
+          direction="row"
+          align="center"
+          justify="center"
           style={{
             height: "40%",
             minHeight: "200px",
-            justifyContent: "center",
-            alignItems: "center",
             padding: "0px 50px",
             textAlign: "center"
           }}
@@ -38,7 +40,7 @@ const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
         </FlexCol>
       </Row>
       <Row>
-        <FlexCol style={{ justifyContent: "center", alignItems: "center" }}>
+        <FlexCol align="center" justify="center" direction="column">
           <StyledButton
             alt="start"
             className="start-button"

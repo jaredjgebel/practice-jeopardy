@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import ClueCard from "./elements/ClueCard";
+import ClueCard from "../components/elements/ClueCard";
 import {
   toggleActiveGame,
   toggleAnswerVisible,

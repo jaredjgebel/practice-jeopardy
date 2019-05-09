@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import Info from "react-feather/dist/icons/info";
 import styles from "../styles/styles";
 
@@ -9,9 +9,6 @@ const StyledIcon = styled(Info)`
   padding: 10px 20px;
   min-height: 100px;
   min-width: 100px;
-
-  font-size: 14px;
-  line-height: 18px;
   text-align: center;
   align-self: center;
 
@@ -24,7 +21,8 @@ const StyledIcon = styled(Info)`
 const InfoText = styled.div`
   visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
   font-style: italic;
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 18px;
   padding: "10px 10px";
 `;
 
@@ -32,7 +30,7 @@ class StyledInfo extends Component {
   constructor() {
     super();
 
-    this.state = { visible: false };
+    this.state = { visible: true };
     this.onClick = this.onClick.bind(this);
   }
 
@@ -45,10 +43,10 @@ class StyledInfo extends Component {
     const { children } = this.props;
 
     return (
-      <>
+      <div style={{ display: "flex", alignItems: "center" }}>
         <StyledIcon size="75px" onClick={() => this.onClick(visible)} />
         <InfoText visible={visible}>{children}</InfoText>
-      </>
+      </div>
     );
   }
 }

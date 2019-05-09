@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 const TextArea = styled.div`
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
