@@ -1,5 +1,5 @@
 import * as c from "./constants";
-import { fetchRandomClues } from "../data/fetch";
+import clues from "../data/clues";
 
 export const pageBack = currentPage => ({
   type: c.PAGE_BACK,
@@ -50,13 +50,14 @@ export const getRandomClues = () => {
   return dispatch => {
     dispatch(getRandomCluesRequest());
 
-    fetchRandomClues()
-      .then(json => {
-        dispatch(getRandomCluesSuccess(json));
-      })
-      .catch(err => {
-        console.log(err);
-        dispatch(getRandomCluesError(err));
-      });
+    const randomClues = [];
+
+    for (let i = 0; i < 100; i++) {
+      randomClues.push(clues[Math.floor(Math.random() * clues.length)]);
+    }
+
+    randomClues.length === 100
+      ? dispatch(getRandomCluesSuccess(randomClues))
+      : dispatch(getRandomCluesError("Clue error"));
   };
 };

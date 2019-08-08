@@ -18,6 +18,7 @@ const clues = (state = defaultState, action) => {
       const obj = {};
 
       action.payload.clues.forEach(clue => {
+        console.log("clue", clue);
         obj[clue.id] = {
           clue: clue.question,
           category: clue.category.title,
