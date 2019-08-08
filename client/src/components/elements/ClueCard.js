@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Visible } from "react-grid-system";
+import { Container, Row, Col } from "react-grid-system";
 import StyledButton from "../styled/StyledButton";
 import LeftArrow from "../styled/LeftArrow";
 import RightArrow from "../styled/RightArrow";
