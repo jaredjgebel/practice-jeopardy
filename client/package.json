@@ -9,20 +9,23 @@
     "react-feather": "^1.1.6",
     "react-grid-system": "^4.4.5",
     "react-redux": "^6.0.0",
-    "react-scripts": "^2.1.5",
+    "react-scripts": "^3.0.0",
     "reakit": "^0.16.0",
     "reakit-theme-default": "^0.2.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "snyk": "^1.216.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "jest",
-    "test:watch": "yarn test -- --watch"
+    "test:watch": "yarn test -- --watch",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,5 +40,6 @@
     "babel-core": "^6.26.3",
     "babel-plugin-macros": "^2.5.1",
     "react-test-renderer": "^16.8.3"
-  }
+  },
+  "snyk": true
 }
