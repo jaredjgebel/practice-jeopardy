@@ -1,9 +1,5 @@
-const port = 8080;
-const host = "localhost";
-const apiUrl = `http://${host}:${port}`;
-
 export const fetchClues = () => {
-  fetch(`${apiUrl}/clues`, {
+  fetch(`/clues`, {
     method: "GET"
   })
     .then(response => {
