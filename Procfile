@@ -1,1 +1,1 @@
-web: cd server && node server.js
+web: yarn --cwd server start
