@@ -1,5 +1,7 @@
 import * as c from "./constants";
-import clues from "../data/clues";
+const port = 8080;
+const host = "localhost";
+const apiUrl = `http://${host}:${port}`;
 
 export const pageBack = currentPage => ({
   type: c.PAGE_BACK,
@@ -46,18 +48,25 @@ export const getRandomCluesError = error => ({
   }
 });
 
-export const getRandomClues = () => {
+export const fetchClues = () => {
   return dispatch => {
     dispatch(getRandomCluesRequest());
 
-    const randomClues = [];
+    fetch(`${apiUrl}/clues`, {
+      method: "GET"
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
 
-    for (let i = 0; i < 100; i++) {
-      randomClues.push(clues[Math.floor(Math.random() * clues.length)]);
-    }
-
-    randomClues.length === 100
-      ? dispatch(getRandomCluesSuccess(randomClues))
-      : dispatch(getRandomCluesError("Clue error"));
+        return response.json();
+      })
+      .then(clues => {
+        dispatch(getRandomCluesSuccess(clues));
+      })
+      .catch(err => {
+        dispatch(getRandomCluesError(err));
+      });
   };
 };
