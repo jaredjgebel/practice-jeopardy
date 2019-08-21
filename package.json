@@ -5,6 +5,7 @@
     "postinstall": "yarn --cwd server && yarn --cwd client"
   },
   "engines": {
-    "yarn": "1.x"
+    "yarn": "1.x",
+    "node": "10.x"
   }
 }
