@@ -21,6 +21,10 @@ mongoose.connection.once("open", function() {
 app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.get("/", function(req, res) {
+  res.setHeader({
+    "Content-Security-Policy": "img-src"
+  });
+
   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
 
@@ -42,4 +46,6 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8080;
 }
-app.listen(port);
+app.listen(port, function() {
+  console.log(`Server listening on port ${port}`);
+});
