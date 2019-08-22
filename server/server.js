@@ -17,7 +17,12 @@ mongoose.connection.once("open", function() {
 app.use(
   csp({
     directives: {
-      defaultSrc: [`'self'`]
+      defaultSrc: ["'none'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: [`'self'`],
+      styleSrc: [`'self'`, "'unsafe-inline'"],
+      manifestSrc: ["'self'"],
+      connectSrc: ["*"]
     }
   })
 );
