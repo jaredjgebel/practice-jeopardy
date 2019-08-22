@@ -6,14 +6,9 @@ const mongoose = require("mongoose");
 const Clue = require("./mongoose/index");
 const csp = require("helmet-csp");
 
-mongoose.connect(
-  `mongodb://${process.env.DBUSER}:${
-    process.env.DBPASSWORD
-  }@ds311128.mlab.com:11128/heroku_f4gqd1mq`,
-  {
-    useNewUrlParser: true
-  }
-);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true
+});
 
 mongoose.connection.once("open", function() {
   console.log("database connection opened");
