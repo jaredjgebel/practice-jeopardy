@@ -4,6 +4,7 @@ const path = require("path");
 const app = express();
 const mongoose = require("mongoose");
 const Clue = require("./mongoose/index");
+const csp = require("helmet-csp");
 
 mongoose.connect(
   `mongodb://${process.env.DBUSER}:${
@@ -18,13 +19,17 @@ mongoose.connection.once("open", function() {
   console.log("database connection opened");
 });
 
+app.use(
+  csp({
+    directives: {
+      defaultSrc: [`'self'`]
+    }
+  })
+);
+
 app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.get("/", function(req, res) {
-  res.setHeader({
-    "Content-Security-Policy": "img-src"
-  });
-
   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
 
