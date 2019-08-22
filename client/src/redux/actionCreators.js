@@ -1,5 +1,5 @@
 import * as c from "./constants";
-const port = 5000;
+const port = 8080;
 const host = "localhost";
 const apiUrl = `http://${host}:${port}`;
 
