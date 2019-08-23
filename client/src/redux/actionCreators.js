@@ -1,7 +1,7 @@
 import * as c from "./constants";
-const port = 8080;
-const host = "localhost";
-const apiUrl = `http://${host}:${port}`;
+// const port = 8080;
+// const host = "localhost";
+// const apiUrl = `http://${host}:${port}`;
 
 export const pageBack = currentPage => ({
   type: c.PAGE_BACK,
@@ -52,7 +52,7 @@ export const fetchClues = () => {
   return dispatch => {
     dispatch(getRandomCluesRequest());
 
-    fetch(`${apiUrl}/clues`, {
+    fetch(`/clues`, {
       method: "GET"
     })
       .then(response => {
