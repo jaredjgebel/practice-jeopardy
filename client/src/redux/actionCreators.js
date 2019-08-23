@@ -52,7 +52,7 @@ export const fetchClues = () => {
   return dispatch => {
     dispatch(getRandomCluesRequest());
 
-    fetch(`/clues`, {
+    fetch(`https://practice-jeopardy.herokuapp.com/clues`, {
       method: "GET"
     })
       .then(response => {
