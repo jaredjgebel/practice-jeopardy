@@ -6,6 +6,10 @@ const mongoose = require("mongoose");
 const Clue = require("./mongoose/index");
 const csp = require("helmet-csp");
 
+const host = process.env.PRODUCTION
+  ? "practice-jeopardy.herokuapp.com"
+  : "3000";
+
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true
 });
@@ -38,7 +42,7 @@ app.get("/clues", function(req, res) {
     .exec()
     .then(result => {
       res.header({
-        "Access-Control-Allow-Origin": `http://localhost:3000`
+        "Access-Control-Allow-Origin": host
       });
       res.json(result);
     })
