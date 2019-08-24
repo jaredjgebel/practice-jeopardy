@@ -1,7 +1,4 @@
 import * as c from "./constants";
-// const port = 8080;
-// const host = "localhost";
-// const apiUrl = `http://${host}:${port}`;
 
 export const pageBack = currentPage => ({
   type: c.PAGE_BACK,
