@@ -5,6 +5,7 @@ import LeftArrow from "../styled/LeftArrow";
 import RightArrow from "../styled/RightArrow";
 import MenuIcon from "../styled/MenuIcon";
 import StyledInfo from "../styled/Info";
+import { FlexCol } from "../styled/FlexCol";
 import "./ClueCard.css";
 
 const ClueCard = ({
@@ -34,12 +35,10 @@ const ClueCard = ({
       }}
     >
       <Row nogutter style={{ flex: "0 1 auto", height: "20vh" }}>
-        <Col
+        <FlexCol
           xs={2}
+          justifyContent="center"
           style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
             height: "100%"
           }}
         >
@@ -49,30 +48,26 @@ const ClueCard = ({
             size="75px"
             onClick={() => toggleActiveGame(true)}
           />
-        </Col>
-        <Col
+        </FlexCol>
+        <FlexCol
           xs={10}
+          justifyContent="center"
+          alignItems="center"
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
             height: "100%"
           }}
         >
           <p className="category" style={{ fontSize: "26px" }}>
             {category}
           </p>
-        </Col>
+        </FlexCol>
       </Row>
 
       <Row nogutter style={{ flex: "1 1 auto", paddingBottom: "30px" }}>
-        <Col
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-around",
-            flexDirection: "column"
-          }}
+        <FlexCol
+          alignItems="center"
+          justifyContent="space-around"
+          flexDirection="column"
         >
           {answerVisible ? (
             <p className="answer">{answer}</p>
@@ -87,15 +82,14 @@ const ClueCard = ({
           >
             {answerVisible ? "BACK TO CLUE" : "REVEAL ANSWER"}
           </StyledButton>
-        </Col>
+        </FlexCol>
       </Row>
 
       <Row nogutter style={{ flex: "0 1 auto", height: "20vh" }}>
-        <Col
+        <FlexCol
           xs={2}
+          alignItems="center"
           style={{
-            display: "flex",
-            alignItems: "center",
             height: "100%"
           }}
         >
@@ -111,14 +105,12 @@ const ClueCard = ({
               }
             }}
           />
-        </Col>
-        <Col
+        </FlexCol>
+        <FlexCol
           xs={8}
+          alignItems="center"
+          justifyContent="center"
           style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
             height: "100%"
           }}
         >
@@ -127,13 +119,12 @@ const ClueCard = ({
             <p>{`Aired ${new Date(Date.parse(airDate))}`.slice(0, -42)}</p>
             <p>{"Clue " + currentPage + " of " + totalPages}</p>
           </StyledInfo>
-        </Col>
-        <Col
+        </FlexCol>
+        <FlexCol
           xs={2}
+          alignItems="center"
+          justifyContent="flex-end"
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
             height: "100%"
           }}
         >
@@ -149,7 +140,7 @@ const ClueCard = ({
               }
             }}
           />
-        </Col>
+        </FlexCol>
       </Row>
     </Container>
   );
