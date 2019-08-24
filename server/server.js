@@ -8,7 +8,7 @@ const csp = require("helmet-csp");
 
 const host = process.env.PRODUCTION
   ? "practice-jeopardy.herokuapp.com"
-  : "3000";
+  : "localhost:3000";
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true
