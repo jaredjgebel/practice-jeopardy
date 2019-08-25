@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./App.css";
 import FrontPage from "../components/FrontPage";
-import ClueCardContainer from "../components/ClueCardContainer";
+import ClueCardContainer from "../components/ClueCard/ClueCardContainer";
 import { toggleActiveGame } from "../redux/actionCreators";
 import { isGameActive, isLoading } from "../redux/selectors";
 import { fetchClues } from "../redux/actionCreators";

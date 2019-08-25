@@ -34,54 +34,30 @@ const ClueCard = ({
         paddingRight: "0px"
       }}
     >
-      <Row nogutter style={{ flex: "0 1 auto", height: "20vh" }}>
-        <FlexCol
-          xs={2}
-          justifyContent="center"
-          style={{
-            height: "100%"
-          }}
-        >
-          <MenuIcon
-            className="menu"
-            alt="menu"
-            size="75px"
-            onClick={() => toggleActiveGame(true)}
-          />
-        </FlexCol>
-        <FlexCol
-          xs={10}
-          justifyContent="center"
-          alignItems="center"
-          style={{
-            height: "100%"
-          }}
-        >
-          <p className="category" style={{ fontSize: "26px" }}>
-            {category}
-          </p>
-        </FlexCol>
-      </Row>
-
       <Row nogutter style={{ flex: "1 1 auto", paddingBottom: "30px" }}>
         <FlexCol
+          className="card"
           alignItems="center"
-          justifyContent="space-around"
+          justifyContent="space-between"
           flexDirection="column"
         >
+          {/* <div className="card"> */}
+          <span className="category">{category}</span>
           {answerVisible ? (
             <p className="answer">{answer}</p>
           ) : (
             <p className="clue">{clue}</p>
           )}
-          <StyledButton
-            style={{ fontSize: "26px" }}
-            onClick={() => {
-              toggleAnswerVisible(answerVisible);
-            }}
-          >
-            {answerVisible ? "BACK TO CLUE" : "REVEAL ANSWER"}
-          </StyledButton>
+          <div className="button">
+            <StyledButton
+              onClick={() => {
+                toggleAnswerVisible(answerVisible);
+              }}
+            >
+              {answerVisible ? "BACK TO CLUE" : "REVEAL ANSWER"}
+            </StyledButton>
+          </div>
+          {/* </div> */}
         </FlexCol>
       </Row>
 
@@ -114,6 +90,12 @@ const ClueCard = ({
             height: "100%"
           }}
         >
+          <MenuIcon
+            className="menu"
+            alt="menu"
+            size="75px"
+            onClick={() => toggleActiveGame(true)}
+          />
           <StyledInfo>
             <p>{`$${value}`}</p>
             <p>{`Aired ${new Date(Date.parse(airDate))}`.slice(0, -42)}</p>
