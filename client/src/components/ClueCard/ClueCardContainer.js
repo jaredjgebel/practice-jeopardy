@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import ClueCard from "../components/elements/ClueCard";
+import ClueCard from "./ClueCard";
 import {
   toggleActiveGame,
   toggleAnswerVisible,
   pageBack,
   pageForward
-} from "../redux/actionCreators";
+} from "../../redux/actionCreators";
 import {
   isAnswerVisible,
   isLoading,
@@ -14,7 +14,7 @@ import {
   getTotalPages,
   getClues,
   getClueIds
-} from "../redux/selectors";
+} from "../../redux/selectors";
 
 const convertToString = num => {
   return num && num.toString();

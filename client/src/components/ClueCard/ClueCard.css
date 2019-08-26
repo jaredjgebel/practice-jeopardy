@@ -1,0 +1,57 @@
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15%;
+  width: 100%;
+  border-bottom: whitesmoke 2px solid;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+  height: 60%;
+  padding: 0px 50px;
+  margin: 0px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.clue {
+  display: flex;
+  align-items: center;
+  height: 60%;
+  padding: 0px 50px;
+  margin: 0px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.card {
+  background-image: url("../../images/beige-paper.png");
+  background-color: #1b0e6963;
+  height: 85%;
+  width: 90%;
+  margin-top: 25px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 2px 2px whitesmoke;
+}
+
+.button {
+  height: 15%;
+}
+
+.top {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 93%;
+  padding-bottom: 30px;
+  margin-left: 0px;
+  margin-right: 0px;
+}

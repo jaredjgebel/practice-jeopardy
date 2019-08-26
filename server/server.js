@@ -8,7 +8,7 @@ const csp = require("helmet-csp");
 
 const host = process.env.PRODUCTION
   ? "practice-jeopardy.herokuapp.com"
-  : "localhost:3000";
+  : "http://localhost:3000";
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true
@@ -55,6 +55,7 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8080;
 }
+
 app.listen(port, function() {
   console.log(`Server listening on port ${port}`);
 });
