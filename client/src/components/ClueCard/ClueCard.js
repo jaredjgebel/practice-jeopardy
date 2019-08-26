@@ -4,7 +4,6 @@ import StyledButton from "../styled/StyledButton";
 import LeftArrow from "../styled/LeftArrow";
 import RightArrow from "../styled/RightArrow";
 import MenuIcon from "../styled/MenuIcon";
-import StyledInfo from "../styled/Info";
 import { FlexCol } from "../styled/FlexCol";
 import "./ClueCard.css";
 
@@ -34,14 +33,12 @@ const ClueCard = ({
         paddingRight: "0px"
       }}
     >
-      <Row nogutter style={{ flex: "1 1 auto", paddingBottom: "30px" }}>
-        <FlexCol
-          className="card"
-          alignItems="center"
-          justifyContent="space-between"
-          flexDirection="column"
-        >
-          {/* <div className="card"> */}
+      <Row
+        nogutter
+        className="top"
+        style={{ flex: "1 1 auto", paddingBottom: "30px", width: "85%" }}
+      >
+        <FlexCol className="card" alignItems="center" flexDirection="column">
           <span className="category">{category}</span>
           {answerVisible ? (
             <p className="answer">{answer}</p>
@@ -57,7 +54,6 @@ const ClueCard = ({
               {answerVisible ? "BACK TO CLUE" : "REVEAL ANSWER"}
             </StyledButton>
           </div>
-          {/* </div> */}
         </FlexCol>
       </Row>
 
@@ -72,7 +68,7 @@ const ClueCard = ({
           <LeftArrow
             alt="Page Back"
             disabled={currentPage === "1"}
-            size="100px"
+            size="75px"
             onClick={() => {
               pageBack(currentPage);
 
@@ -90,17 +86,28 @@ const ClueCard = ({
             height: "100%"
           }}
         >
-          <MenuIcon
-            className="menu"
-            alt="menu"
-            size="75px"
-            onClick={() => toggleActiveGame(true)}
-          />
-          <StyledInfo>
-            <p>{`$${value}`}</p>
-            <p>{`Aired ${new Date(Date.parse(airDate))}`.slice(0, -42)}</p>
-            <p>{"Clue " + currentPage + " of " + totalPages}</p>
-          </StyledInfo>
+          <FlexCol xs={6} justifyContent="center">
+            <MenuIcon
+              className="menu"
+              alt="menu"
+              size="75px"
+              onClick={() => toggleActiveGame(true)}
+            />
+          </FlexCol>
+          <FlexCol
+            xs={6}
+            alignItems="center"
+            justifyContent="center"
+            flexDirection="column"
+          >
+            <p style={{ margin: "0px 5px" }}>{`$${value}`}</p>
+            <p style={{ margin: "0px 5px" }}>
+              {`Aired ${new Date(Date.parse(airDate))}`.slice(0, -42)}
+            </p>
+            <p style={{ margin: "0px 5px" }}>
+              {"Clue " + currentPage + " of " + totalPages}
+            </p>
+          </FlexCol>
         </FlexCol>
         <FlexCol
           xs={2}
@@ -113,7 +120,7 @@ const ClueCard = ({
           <RightArrow
             alt="Page Forward"
             disabled={currentPage === totalPages}
-            size="100px"
+            size="75px"
             onClick={() => {
               pageForward(currentPage, totalPages);
 
