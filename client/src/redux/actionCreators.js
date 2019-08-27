@@ -49,7 +49,7 @@ export const fetchClues = () => {
   return dispatch => {
     dispatch(getRandomCluesRequest());
 
-    fetch(`${url}/clues`, {
+    fetch(`/clues`, {
       method: "GET"
     })
       .then(response => {
