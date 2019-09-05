@@ -33,11 +33,17 @@ const ClueCard = ({
         paddingRight: "0px"
       }}
     >
-      <Row
-        nogutter
-        className="top"
-        style={{ flex: "1 1 auto", paddingBottom: "30px", width: "85%" }}
-      >
+      <Row style={{ height: "75px" }}>
+        <FlexCol>
+          <MenuIcon
+            className="menu"
+            alt="menu"
+            size="75px"
+            onClick={() => toggleActiveGame(true)}
+          />
+        </FlexCol>
+      </Row>
+      <Row nogutter className="top" style={{ flex: "1 1 auto" }}>
         <FlexCol className="card" alignItems="center" flexDirection="column">
           <span className="category">{category}</span>
           {answerVisible ? (
@@ -57,7 +63,10 @@ const ClueCard = ({
         </FlexCol>
       </Row>
 
-      <Row nogutter style={{ flex: "0 1 auto", height: "20vh" }}>
+      <Row
+        nogutter
+        style={{ flex: "0 1 auto", height: "20vh", overflowY: "wrap" }}
+      >
         <FlexCol
           xs={2}
           alignItems="center"
@@ -86,16 +95,7 @@ const ClueCard = ({
             height: "100%"
           }}
         >
-          <FlexCol xs={6} justifyContent="center">
-            <MenuIcon
-              className="menu"
-              alt="menu"
-              size="75px"
-              onClick={() => toggleActiveGame(true)}
-            />
-          </FlexCol>
           <FlexCol
-            xs={6}
             alignItems="center"
             justifyContent="center"
             flexDirection="column"
