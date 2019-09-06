@@ -57,5 +57,5 @@ if (port == null || port == "") {
 }
 
 app.listen(port, function() {
-  console.log(`Server listening on port ${port}, testing server`);
+  console.log(`Server listening on port ${port}, testing server functionality`);
 });
