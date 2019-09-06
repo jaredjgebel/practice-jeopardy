@@ -67,7 +67,7 @@ class ClueCardContainer extends Component {
       <p>Loading...</p>
     ) : (
       <ClueCard
-        clue={clues[clueIds[currentPage - 1]].clue}
+        content={clues[clueIds[currentPage - 1]].clue}
         answer={clues[clueIds[currentPage - 1]].answer}
         category={clues[clueIds[currentPage - 1]].category}
         value={clues[clueIds[currentPage - 1]].value}

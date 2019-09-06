@@ -1,18 +1,20 @@
 import React from "react";
 import { Container, Row, Col } from "react-grid-system";
-import StyledButton from "../styled/StyledButton";
+// import { Tooltip, TooltipReference, useTooltipState } from "reakit/Tooltip";
 import LeftArrow from "../styled/LeftArrow";
 import RightArrow from "../styled/RightArrow";
 import MenuIcon from "../styled/MenuIcon";
 import { FlexCol } from "../styled/FlexCol";
 import "./ClueCard.css";
+import Clue from "../Clue/Clue";
 
 const ClueCard = ({
   clue,
   category,
+  content,
+  answer,
   value,
   airDate,
-  answer,
   currentPage,
   totalPages,
   answerVisible,
@@ -45,21 +47,13 @@ const ClueCard = ({
       </Row>
       <Row nogutter className="top" style={{ flex: "1 1 auto" }}>
         <FlexCol className="card" alignItems="center" flexDirection="column">
-          <span className="category">{category}</span>
-          {answerVisible ? (
-            <p className="answer">{answer}</p>
-          ) : (
-            <p className="clue">{clue}</p>
-          )}
-          <div className="button">
-            <StyledButton
-              onClick={() => {
-                toggleAnswerVisible(answerVisible);
-              }}
-            >
-              {answerVisible ? "BACK TO CLUE" : "REVEAL ANSWER"}
-            </StyledButton>
-          </div>
+          <Clue
+            category={category}
+            content={content}
+            answer={answer}
+            answerVisible={answerVisible}
+            toggleAnswerVisible={toggleAnswerVisible}
+          />
         </FlexCol>
       </Row>
 
