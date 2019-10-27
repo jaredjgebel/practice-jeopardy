@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ClueCard from "./ClueCard";
 import {
@@ -72,8 +73,6 @@ class ClueCardContainer extends Component {
         category={clues[clueIds[currentPage - 1]].category}
         value={clues[clueIds[currentPage - 1]].value}
         airDate={clues[clueIds[currentPage - 1]].airDate}
-        index={currentPage}
-        totalClues={totalPages}
         currentPage={convertToString(currentPage)}
         totalPages={convertToString(totalPages)}
         answerVisible={answerVisible}
@@ -90,3 +89,18 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ClueCardContainer);
+
+ClueCardContainer.propTypes = {
+  content: PropTypes.string,
+  answer: PropTypes.string,
+  category: PropTypes.string,
+  value: PropTypes.string,
+  airDate: PropTypes.string,
+  currentPage: PropTypes.number,
+  totalPages: PropTypes.number,
+  answerVisible: PropTypes.bool,
+  toggleActiveGame: PropTypes.func,
+  toggleAnswerVisible: PropTypes.func,
+  pageBack: PropTypes.func,
+  pageForward: PropTypes.func
+};

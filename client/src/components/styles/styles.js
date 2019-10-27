@@ -5,7 +5,7 @@ const styles = {
   },
   enabled: {
     stroke: "white",
-    fill: "020788"
+    fill: "transparent"
   },
   disabledHover: {
     stroke: "gray",
@@ -13,7 +13,7 @@ const styles = {
   },
   enabledHover: {
     stroke: "white",
-    fill: "lightblue"
+    fill: "#020788"
   }
 };
 
@@ -24,7 +24,7 @@ export const buttons = {
   },
   enabledHover: {
     stroke: "white",
-    fill: "lightblue"
+    fill: "020788"
   }
 };
 

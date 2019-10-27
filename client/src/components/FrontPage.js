@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Row } from "react-grid-system";
 import { FlexCol } from "./styled/FlexCol";
 import StyledButton from "./styled/StyledButton";
@@ -52,3 +53,8 @@ const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
 };
 
 export default FrontPage;
+
+FrontPage.propTypes = {
+  toggleActiveGame: PropTypes.func.isRequired,
+  getRandomClues: PropTypes.func.isRequired
+};

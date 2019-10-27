@@ -1,15 +1,13 @@
 import React from "react";
-import { Container, Row, Col } from "react-grid-system";
-// import { Tooltip, TooltipReference, useTooltipState } from "reakit/Tooltip";
+import PropTypes from "prop-types";
+import { Container, Row } from "react-grid-system";
 import LeftArrow from "../styled/LeftArrow";
 import RightArrow from "../styled/RightArrow";
 import MenuIcon from "../styled/MenuIcon";
 import { FlexCol } from "../styled/FlexCol";
-import "./ClueCard.css";
 import Clue from "../Clue/Clue";
 
 const ClueCard = ({
-  clue,
   category,
   content,
   answer,
@@ -36,7 +34,7 @@ const ClueCard = ({
       }}
     >
       <Row style={{ height: "75px" }}>
-        <FlexCol>
+        <FlexCol justifyContent="flex-end">
           <MenuIcon
             className="menu"
             alt="menu"
@@ -45,8 +43,8 @@ const ClueCard = ({
           />
         </FlexCol>
       </Row>
-      <Row nogutter className="top" style={{ flex: "1 1 auto" }}>
-        <FlexCol className="card" alignItems="center" flexDirection="column">
+      <Row nogutter className="top" style={{ minHeight: "72%" }}>
+        <FlexCol justifyContent="center" style={{ height: "100%" }}>
           <Clue
             category={category}
             content={content}
@@ -61,13 +59,7 @@ const ClueCard = ({
         nogutter
         style={{ flex: "0 1 auto", height: "20vh", overflowY: "wrap" }}
       >
-        <FlexCol
-          xs={2}
-          alignItems="center"
-          style={{
-            height: "100%"
-          }}
-        >
+        <FlexCol xs={2} alignItems="center">
           <LeftArrow
             alt="Page Back"
             disabled={currentPage === "1"}
@@ -81,14 +73,7 @@ const ClueCard = ({
             }}
           />
         </FlexCol>
-        <FlexCol
-          xs={8}
-          alignItems="center"
-          justifyContent="center"
-          style={{
-            height: "100%"
-          }}
-        >
+        <FlexCol xs={8} alignItems="center" justifyContent="center">
           <FlexCol
             alignItems="center"
             justifyContent="center"
@@ -103,14 +88,7 @@ const ClueCard = ({
             </p>
           </FlexCol>
         </FlexCol>
-        <FlexCol
-          xs={2}
-          alignItems="center"
-          justifyContent="flex-end"
-          style={{
-            height: "100%"
-          }}
-        >
+        <FlexCol xs={2} alignItems="center" justifyContent="flex-end">
           <RightArrow
             alt="Page Forward"
             disabled={currentPage === totalPages}
@@ -130,3 +108,17 @@ const ClueCard = ({
 };
 
 export default ClueCard;
+
+ClueCard.propTypes = {
+  category: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  airDate: PropTypes.string.isRequired,
+  currentPage: PropTypes.string.isRequired,
+  totalPages: PropTypes.string.isRequired,
+  toggleActiveGame: PropTypes.func.isRequired,
+  toggleAnswerVisible: PropTypes.func.isRequired,
+  pageBack: PropTypes.func.isRequired,
+  pageForward: PropTypes.func.isRequired
+};
