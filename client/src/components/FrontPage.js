@@ -1,31 +1,23 @@
 import React from "react";
-import { Row, Col } from "react-grid-system";
-import { FlexCol } from "./elements/FlexCol";
+import { Row } from "react-grid-system";
+import { FlexCol } from "./styled/FlexCol";
 import StyledButton from "./styled/StyledButton";
 
 const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
   return (
     <>
       <Row style={{ height: "35%", minHeight: "200px" }} className="front-page">
-        <Col
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-end",
-            textAlign: "center"
-          }}
-        >
+        <FlexCol justifyContent="center" alignItems="flex-end">
           <h1 style={{ fontSize: "4rem", marginBottom: "0px" }}>
             Practice JEOPARDY!
           </h1>
-        </Col>
+        </FlexCol>
       </Row>
       <Row>
         <FlexCol
           xs={12}
-          direction="row"
-          align="center"
-          justify="center"
+          alignItems="center"
+          justifyContent="center"
           style={{
             height: "40%",
             minHeight: "200px",
@@ -40,7 +32,7 @@ const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
         </FlexCol>
       </Row>
       <Row>
-        <FlexCol align="center" justify="center" direction="column">
+        <FlexCol align="center" justify="center" flexDirection="column">
           <StyledButton
             alt="start"
             className="start-button"

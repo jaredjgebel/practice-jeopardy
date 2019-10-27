@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./App.css";
 import FrontPage from "../components/FrontPage";
-import ClueCardContainer from "../components/ClueCardContainer";
+import ClueCardContainer from "../components/ClueCard/ClueCardContainer";
 import { toggleActiveGame } from "../redux/actionCreators";
 import { isGameActive, isLoading } from "../redux/selectors";
-import { getRandomClues } from "../redux/actionCreators";
+import { fetchClues } from "../redux/actionCreators";
 import Background from "./styled/Background";
 import StyledContainer from "./styled/StyledContainer";
 
@@ -20,22 +20,22 @@ const mapDispatchToProps = dispatch => {
     toggleActiveGame: toggleState => {
       dispatch(toggleActiveGame(toggleState));
     },
-    getRandomClues: () => {
-      dispatch(getRandomClues());
+    fetchClues: () => {
+      dispatch(fetchClues());
     }
   };
 };
 
 class App extends Component {
   render() {
-    const { gameActive, toggleActiveGame, getRandomClues } = this.props;
+    const { gameActive, toggleActiveGame, fetchClues } = this.props;
 
     const MainComponent = gameActive ? (
       <ClueCardContainer />
     ) : (
       <FrontPage
         toggleActiveGame={toggleActiveGame}
-        getRandomClues={getRandomClues}
+        getRandomClues={fetchClues}
       />
     );
 

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import ClueCard from "../components/elements/ClueCard";
+import ClueCard from "./ClueCard";
 import {
   toggleActiveGame,
   toggleAnswerVisible,
   pageBack,
   pageForward
-} from "../redux/actionCreators";
+} from "../../redux/actionCreators";
 import {
   isAnswerVisible,
   isLoading,
@@ -14,7 +14,7 @@ import {
   getTotalPages,
   getClues,
   getClueIds
-} from "../redux/selectors";
+} from "../../redux/selectors";
 
 const convertToString = num => {
   return num && num.toString();
@@ -67,7 +67,7 @@ class ClueCardContainer extends Component {
       <p>Loading...</p>
     ) : (
       <ClueCard
-        clue={clues[clueIds[currentPage - 1]].clue}
+        content={clues[clueIds[currentPage - 1]].clue}
         answer={clues[clueIds[currentPage - 1]].answer}
         category={clues[clueIds[currentPage - 1]].category}
         value={clues[clueIds[currentPage - 1]].value}

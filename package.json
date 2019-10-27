@@ -1,0 +1,11 @@
+{
+  "name": "practice-jeopardy",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "yarn --cwd server && yarn --cwd client"
+  },
+  "engines": {
+    "yarn": "1.x",
+    "node": "10.x"
+  }
+}
