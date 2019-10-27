@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import Menu from "react-feather/dist/icons/menu";
 import styles from "../styles/styles";
 
