@@ -13,7 +13,7 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.2.0",
-    "snyk": "^1.239.0"
+    "snyk": "^1.319.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,7 +22,7 @@
     "test": "jest",
     "test:watch": "yarn test -- --watch",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "yarn run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
