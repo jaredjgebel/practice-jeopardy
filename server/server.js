@@ -11,10 +11,11 @@ const host = process.env.PRODUCTION
   : "http://localhost:3000";
 
 mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-mongoose.connection.once("open", function() {
+mongoose.connection.once("open", function () {
   console.log("database connection opened");
 });
 
@@ -26,27 +27,27 @@ app.use(
       imgSrc: [`'self'`],
       styleSrc: [`'self'`, "'unsafe-inline'"],
       manifestSrc: ["'self'"],
-      connectSrc: ["*"]
-    }
+      connectSrc: ["*"],
+    },
   })
 );
 
 app.use(express.static(path.join(__dirname, "../client/build")));
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
 
-app.get("/clues", function(req, res) {
+app.get("/clues", function (req, res) {
   Clue.aggregate([{ $sample: { size: 100 } }])
     .exec()
-    .then(result => {
+    .then((result) => {
       res.header({
-        "Access-Control-Allow-Origin": host
+        "Access-Control-Allow-Origin": host,
       });
       res.json(result);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 });
@@ -56,6 +57,6 @@ if (port == null || port == "") {
   port = 8080;
 }
 
-app.listen(port, function() {
+app.listen(port, function () {
   console.log(`Server listening on port ${port}, testing server functionality`);
 });

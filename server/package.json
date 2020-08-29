@@ -7,7 +7,7 @@
   "private": false,
   "proxy": "http://localhost:8080",
   "scripts": {
-    "start": "node server.js"
+    "start": "npx nodemon server.js"
   },
   "dependencies": {
     "dotenv": "^8.1.0",
@@ -17,5 +17,8 @@
   },
   "engines": {
     "node": "10.x"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

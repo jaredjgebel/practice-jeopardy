@@ -23,7 +23,9 @@ const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
             height: "40%",
             minHeight: "200px",
             padding: "0px 50px",
-            textAlign: "center"
+            textAlign: "center",
+            paddingLeft: "30px",
+            paddingRight: "30px",
           }}
         >
           <p>
@@ -33,7 +35,11 @@ const FrontPage = ({ toggleActiveGame, getRandomClues }) => {
         </FlexCol>
       </Row>
       <Row>
-        <FlexCol align="center" justify="center" flexDirection="column">
+        <FlexCol
+          alignItems="center"
+          justifyContent="center"
+          flexDirection="column"
+        >
           <StyledButton
             alt="start"
             className="start-button"
@@ -56,5 +62,5 @@ export default FrontPage;
 
 FrontPage.propTypes = {
   toggleActiveGame: PropTypes.func.isRequired,
-  getRandomClues: PropTypes.func.isRequired
+  getRandomClues: PropTypes.func.isRequired,
 };
