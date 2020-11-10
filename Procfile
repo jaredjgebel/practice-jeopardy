@@ -1,1 +1,1 @@
-web: yarn --cwd server start
+web: bin/qgtunnel yarn --cwd server start
