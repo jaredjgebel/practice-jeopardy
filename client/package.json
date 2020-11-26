@@ -12,7 +12,7 @@
     "reakit": "^0.16.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "snyk": "^1.239.0",
+    "snyk": "^1.425.4",
     "styled-components": "^4.2.0"
   },
   "scripts": {
