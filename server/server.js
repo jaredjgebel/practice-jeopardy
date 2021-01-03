@@ -6,9 +6,10 @@ const mongoose = require("mongoose");
 const Clue = require("./mongoose/index");
 const csp = require("helmet-csp");
 
-const host = process.env.PRODUCTION
-  ? "practice-jeopardy.herokuapp.com"
-  : "http://localhost:3000";
+const host =
+  process.env.PRODUCTION === true
+    ? "practice-jeopardy.herokuapp.com"
+    : "http://localhost:3000";
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
